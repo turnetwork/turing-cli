@@ -1,4 +1,4 @@
-const TURING_URL = 'ws://47.105.217.249:9944';
+const TURING_URL = 'ws://127.0.0.1:9944';
 
 module.exports = {
     TURING_URL

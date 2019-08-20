@@ -1,5 +1,5 @@
 const turing = require('../lib/turing');
-const {TURING_URL} = require('./config');
+const { TURING_URL } = require('./config');
 
 const description = () => {
     return "Operating on the turing chain \n \
@@ -39,6 +39,10 @@ const action = async (func, options) => {
                 }
                 result = await turing.balance(options.url, options.address);
                 console.log(result);
+                break;
+            // TODO: wait ink! finished
+            case 'contract':
+                
                 break;
             case 'bondController':
                 if (!options.key || !options.address || !options.value) {
@@ -89,4 +93,5 @@ const action = async (func, options) => {
 module.exports = {
     description,
     action,
+    setDefaultOptions
 }
