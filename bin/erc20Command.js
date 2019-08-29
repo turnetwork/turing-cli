@@ -59,6 +59,24 @@ const action = async (func, options) => {
                 result = await erc20.queryToken(options.url, options.tokenHash);
                 console.log(result);
                 break;
+            case 'queryBalance':
+                if(!options.tokenHash || !options.address) {
+                    console.log('unexpected input.\n');
+                    console.log('example: -l "ws://localhost:9944" -h 0x1234...678 -a 5Gr...tQY');
+                    return ;
+                }
+                result = await erc20.queryBalance(options.url, options.address, options.tokenHash);
+                console.log("The balance of account(" + options.address + "): " + result);
+                break;
+            case 'queryAllowances':
+                        if(!options.tokenHash || !options.address) {
+                            console.log('unexpected input.\n');
+                            console.log('example: -l "ws://localhost:9944" -h 0x1234...678 -a 5Gr...tQY');
+                            return ;
+                        }
+                        result = await erc20.queryAllowances(options.url, options.address, options.tokenHash, options.other);
+                        console.log("The allowances of account(" + options.address + "): " + result);
+                        break;
             default:
                     console.log('unknown function. please use --help')
         }

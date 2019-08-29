@@ -33,6 +33,7 @@ program.command('erc20 <func>')
     .option('-s, --symbol <symbol>', 'token symbol.')
     .option('-d, --decimal <decimal>', 'token decimal.')
     .option('-t, --totalSupply <totalSupply>', 'token total supply')
+    .option('-o, --other <other>', 'allowance other')
     .action(erc20Command.action)
     
     
